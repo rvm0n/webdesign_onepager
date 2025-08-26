@@ -1,0 +1,61 @@
+---
+import FeatureCard from './FeatureCard.astro';
+import BGPattern from './BGPattern.astro';
+import AnimatedCTAButton from './AnimatedCTAButton.astro';
+
+interface Props {
+  data: {
+    title: string;
+    subtitle: string;
+    advantages: Array<{
+      title: string;
+      icon: string;
+      description: string;
+    }>;
+  };
+}
+
+const { data } = Astro.props;
+
+// Simple function to highlight keywords in title
+function formatTitle(title: string) {
+  return title.split(' ').map((word, i) => {
+    if (word.includes('online') || word.includes('digital')) {
+      return `<span class="text-primary">${word}</span>`;
+    }
+    return word;
+  }).join(' ');
+}
+---
+
+<section id="leistungen" class="relative py-16 md:py-32">
+  <BGPattern variant="grid" mask="fade-edges" size={40} fill="rgba(59, 130, 246, 0.03)" />
+  <BGPattern variant="vertical-lines" mask="fade-x" size={60} fill="rgba(59, 130, 246, 0.02)" />
+  
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-16 scroll-animate">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance mb-4" set:html={formatTitle(data.title)}>
+      </h2>
+      <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+        {data.subtitle}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
+      {data.advantages.map((advantage) => (
+        <FeatureCard 
+          title={advantage.title}
+          icon={advantage.icon}
+          description={advantage.description}
+          class="scroll-animate"
+        />
+      ))}
+    </div>
+    
+    <div class="text-center mt-16">
+      <AnimatedCTAButton href="https://cal.com/ramon-melchior/15min">
+        Jetzt Termin sichern
+      </AnimatedCTAButton>
+    </div>
+  </div>
+</section>

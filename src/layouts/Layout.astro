@@ -1,0 +1,102 @@
+---
+export interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  noindex?: boolean;
+}
+
+const {
+  title,
+  description = "Professionelle Webdesign-Lösungen für Finanzberater, Immobilienmakler und Versicherungsmakler. Mehr Kunden durch moderne Websites.",
+  canonical,
+  ogImage = "/og-image.jpg",
+  noindex = false,
+} = Astro.props;
+
+const canonicalURL = canonical || Astro.url;
+---
+
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={description} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO Meta Tags -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+    
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <!-- JSON-LD Schema.org markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebDesignService",
+        "name": "Webdesign für Finanzdienstleister",
+        "description": "Professionelle Webdesign-Lösungen für Finanzberater, Immobilienmakler und Versicherungsmakler",
+        "url": "https://webdesign-landingpage.com",
+        "serviceType": ["Web Design", "Web Development"],
+        "areaServed": "Deutschland",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Webdesign Services",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Webdesign für Finanzberater",
+                "description": "Spezialisierte Websites für Finanzberater"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Webdesign für Immobilienmakler",
+                "description": "Professionelle Websites für Immobilienmakler"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Webdesign für Versicherungsmakler",
+                "description": "Moderne Websites für Versicherungsmakler"
+              }
+            }
+          ]
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

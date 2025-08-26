@@ -1,16 +1,49 @@
 ---
-
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/react/Navbar.tsx';
+import ScrollAnimations from '../components/react/ScrollAnimations.tsx';
+import FAQSection from '../components/react/FAQSection.tsx';
+import HeroSection from '../components/ui/HeroSection.astro';
+import BenefitsSection from '../components/ui/BenefitsSection.astro';
+import ServicesGridSection from '../components/ui/ServicesGridSection.astro';
+import ProcessSection from '../components/ui/ProcessSection.astro';
+import CTASection from '../components/ui/CTASection.astro';
+import Footer from '../components/ui/Footer.astro';
+import '../styles/globals.css';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="Premium Webdesign für Finanzexperten | RM Webdesign & AI"
+  description="Professionelle Websites für Versicherungs-, Finanz- & Immobilienmakler. 6 Jahre Erfahrung aus Birkenfeld für ganz Deutschland. Kostenloses Beratungsgespräch."
+>
+  <main class="min-h-screen">
+    <Navbar client:load />
+
+    <HeroSection
+      title="Premium Webdesign für Finanzexperten"
+      subtitle={{
+        regular: "Vertrauensvolle Websites für ",
+        gradient: "Versicherungs-, Finanz- & Immobilienmakler",
+      }}
+      description="6 Jahre Branchenerfahrung. Websites, die Vertrauen schaffen und Kunden gewinnen."
+      ctaText="Kostenlose Beratung buchen"
+      ctaHref="https://cal.com/ramon-melchior/15min"
+      gridOptions={{
+        angle: 65,
+        opacity: 0.3,
+        cellSize: 60,
+        lightLineColor: "#0056b3",
+        darkLineColor: "#1e90ff",
+      }}
+    />
+
+    <BenefitsSection />
+    <ServicesGridSection />
+    <ProcessSection />
+    <FAQSection client:idle />
+    <CTASection />
+    <Footer />
+    
+    <ScrollAnimations client:idle />
+  </main>
+</Layout>

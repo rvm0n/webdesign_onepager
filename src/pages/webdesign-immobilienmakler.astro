@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/react/Navbar.tsx';
+import ScrollAnimations from '../components/react/ScrollAnimations.tsx';
+import FAQSection from '../components/react/FAQSection.tsx';
+import HeroSection from '../components/ui/HeroSection.astro';
+import IndustryPainPointsSection from '../components/ui/IndustryPainPointsSection.astro';
+import IndustrySolutionsSection from '../components/ui/IndustrySolutionsSection.astro';
+import ProcessSection from '../components/ui/ProcessSection.astro';
+import IndustryCTASection from '../components/ui/IndustryCTASection.astro';
+import Footer from '../components/ui/Footer.astro';
+import { industryData } from '../lib/industry-data.ts';
+import '../styles/globals.css';
+
+const data = industryData.immobilien;
+---
+
+<Layout 
+  title={data.seo.title}
+  description={data.seo.description}
+>
+  <main class="min-h-screen">
+    <Navbar client:load />
+
+    <HeroSection
+      title={data.title}
+      subtitle={data.subtitle}
+      description={data.description}
+      ctaText={data.heroData.ctaText}
+      ctaHref="#contact"
+      gridOptions={{
+        angle: 65,
+        opacity: 0.3,
+        cellSize: 60,
+        lightLineColor: "#0056b3",
+        darkLineColor: "#1e90ff",
+      }}
+    />
+
+    <IndustryPainPointsSection data={data.painPoints} />
+    <IndustrySolutionsSection data={data.solutions} />
+    <ProcessSection />
+    <FAQSection client:idle />
+    <IndustryCTASection data={data.cta} />
+    <Footer />
+    
+    <ScrollAnimations client:idle />
+    
+  </main>
+</Layout>

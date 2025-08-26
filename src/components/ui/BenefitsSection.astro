@@ -1,0 +1,68 @@
+---
+import Card from './Card.astro';
+import CardHeader from './CardHeader.astro';
+import CardContent from './CardContent.astro';
+---
+
+<section id="benefits" class="bg-muted/50 py-16 md:py-32 dark:bg-transparent">
+  <div class="@container mx-auto max-w-5xl px-6">
+    <div class="text-center">
+      <h2 class="text-balance text-4xl font-semibold lg:text-5xl">Kennen Sie diese Probleme?</h2>
+      <p class="mt-4 text-muted-foreground">Als Finanzexperte stehen Sie vor digitalen Herausforderungen, die Ihr Geschäftswachstum bremsen können.</p>
+    </div>
+    <div class="mx-auto mt-8 grid max-w-sm md:max-w-full md:grid-cols-3 md:divide-x md:divide-y-0 divide-y overflow-hidden shadow-zinc-950/5 md:mt-16 bg-card text-card-foreground rounded-xl border shadow-sm *:text-center">
+      
+      <div class="group shadow-zinc-950/5">
+        <CardHeader class="pb-3">
+          <div aria-hidden class="relative mx-auto size-36 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+            <div class="absolute inset-0 [--border:black] dark:[--border:white] bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-10"></div>
+            <div class="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l">
+              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="mt-6 font-medium">Kunden finden Sie nicht online?</h3>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm">Potenzielle Kunden suchen online nach Finanzberatung, aber Ihre veraltete Website macht Sie unsichtbar.</p>
+        </CardContent>
+      </div>
+
+      <div class="group shadow-zinc-950/5">
+        <CardHeader class="pb-3">
+          <div aria-hidden class="relative mx-auto size-36 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+            <div class="absolute inset-0 [--border:black] dark:[--border:white] bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-10"></div>
+            <div class="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l">
+              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="mt-6 font-medium">Die Konkurrenz hängt Sie ab?</h3>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm">Während Sie offline arbeiten, gewinnen Mitbewerber mit professionellen Websites das Vertrauen Ihrer Zielkunden.</p>
+        </CardContent>
+      </div>
+
+      <div class="group shadow-zinc-950/5">
+        <CardHeader class="pb-3">
+          <div aria-hidden class="relative mx-auto size-36 [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)]">
+            <div class="absolute inset-0 [--border:black] dark:[--border:white] bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-[size:24px_24px] opacity-10"></div>
+            <div class="bg-background absolute inset-0 m-auto flex size-12 items-center justify-center border-t border-l">
+              <svg class="size-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="mt-6 font-medium">Vertrauensverlust durch schlechten Auftritt?</h3>
+        </CardHeader>
+        <CardContent>
+          <p class="text-sm">Eine unprofessionelle Website erweckt Zweifel an Ihrer Kompetenz, bevor das erste Beratungsgespräch stattfindet.</p>
+        </CardContent>
+      </div>
+      
+    </Card>
+  </div>
+</section>

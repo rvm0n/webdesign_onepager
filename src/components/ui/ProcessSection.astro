@@ -1,0 +1,52 @@
+---
+import Card from './Card.astro';
+import CardContent from './CardContent.astro';
+
+const processSteps = [
+  {
+    step: "1",
+    title: "Analyse und Beginn der Zusammenarbeit",
+    description:
+      "Wir lernen Ihr Unternehmen und Ihre Ziele kennen. In einem ausführlichen Gespräch erfassen wir Ihre Wünsche und entwickeln gemeinsam eine maßgeschneiderte Strategie.",
+  },
+  {
+    step: "2", 
+    title: "Konzeption und Entwicklung",
+    description:
+      "Basierend auf unserer Analyse erstellen wir das Design und entwickeln Ihre professionelle Website. Dabei halten wir Sie stets über den Fortschritt auf dem Laufenden.",
+  },
+  {
+    step: "3",
+    title: "Fertigstellung und Launch", 
+    description:
+      "Nach finalen Tests und Ihrer Freigabe geht Ihre neue Website live. Wir sorgen für einen reibungslosen Start und stehen Ihnen auch danach zur Seite.",
+  },
+];
+---
+
+<section id="process" class="py-16 md:py-24 bg-gradient-to-b from-blue-50 via-white to-white dark:from-blue-950/30 dark:via-background dark:to-background">
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-12 scroll-animate">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance mb-4">
+        Unser bewährter <span class="text-primary">Prozess</span>
+      </h2>
+      <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+        In drei klaren Schritten zu Ihrer professionellen Website - transparent, effizient und auf Ihre Bedürfnisse zugeschnitten.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 stagger-container">
+      {processSteps.map((step) => (
+        <Card class="border shadow-lg hover:shadow-xl transition-all duration-300 bg-white/50 dark:bg-gray-950/50 backdrop-blur-lg scroll-animate">
+          <CardContent class="p-8 text-center">
+            <div class="text-sm font-medium text-muted-foreground mb-4">Schritt {step.step}</div>
+
+            <h3 class="text-xl font-serif font-bold text-foreground mb-4 leading-tight">{step.title}</h3>
+
+            <p class="text-muted-foreground leading-relaxed">{step.description}</p>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+</section>

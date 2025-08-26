@@ -1,0 +1,101 @@
+---
+import AnimatedCTAButton from './AnimatedCTAButton.astro';
+
+interface Props {
+  title?: string;
+  subtitle?: {
+    regular: string;
+    gradient: string;
+  };
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
+  bottomImage?: {
+    light: string;
+    dark: string;
+  };
+  gridOptions?: {
+    angle?: number;
+    cellSize?: number;
+    opacity?: number;
+    lightLineColor?: string;
+    darkLineColor?: string;
+  };
+  class?: string;
+}
+
+const {
+  title = "Premium Webdesign für Finanzprofis",
+  subtitle = {
+    regular: "Vertrauen schaffen durch ",
+    gradient: "professionelles Webdesign",
+  },
+  description = "Spezialisiert auf Versicherungsmakler, Finanzberater und Immobilienmakler. Wir entwickeln Websites, die Vertrauen schaffen und Kunden gewinnen.",
+  ctaText = "Kostenloses Beratungsgespräch",
+  ctaHref = "https://cal.com/ramon-melchior/15min",
+  bottomImage = {
+    light: "/financial-dashboard-light.png",
+    dark: "/financial-dashboard-dark.png",
+  },
+  gridOptions = {
+    angle: 65,
+    cellSize: 60,
+    opacity: 0.5,
+    lightLineColor: "#0056b3",
+    darkLineColor: "#1e90ff",
+  },
+  class: className,
+} = Astro.props;
+
+const gridStyles = {
+  "--grid-angle": `${gridOptions.angle}deg`,
+  "--cell-size": `${gridOptions.cellSize}px`,
+  "--opacity": gridOptions.opacity,
+  "--light-line": gridOptions.lightLineColor,
+  "--dark-line": gridOptions.darkLineColor,
+};
+---
+
+<div class={`relative ${className || ''}`}>
+  <div class="absolute top-0 z-[0] h-screen w-screen bg-blue-950/10 dark:bg-blue-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(59,130,246,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(59,130,246,0.3),rgba(255,255,255,0))]"></div>
+  
+  <section class="relative min-h-screen flex items-center justify-center z-1">
+    <!-- RetroGrid -->
+    <div
+      class="pointer-events-none absolute size-full overflow-hidden [perspective:200px] opacity-[var(--opacity)]"
+      style={gridStyles}
+    >
+      <div class="absolute inset-0 [transform:rotateX(var(--grid-angle))]">
+        <div class="[background-image:linear-gradient(to_right,var(--light-line)_1px,transparent_0),linear-gradient(to_bottom,var(--light-line)_1px,transparent_0)] [background-repeat:repeat] [background-size:var(--cell-size)_var(--cell-size)] [height:300vh] [inset:0%_0px] [margin-left:-200%] [transform-origin:100%_0_0] [width:600vw] dark:[background-image:linear-gradient(to_right,var(--dark-line)_1px,transparent_0),linear-gradient(to_bottom,var(--dark-line)_1px,transparent_0)]"></div>
+      </div>
+      <div class="absolute inset-0 bg-gradient-to-t from-white to-transparent to-90% dark:from-black"></div>
+    </div>
+
+    <div class="max-w-screen-xl z-10 mx-auto px-4 gap-12 md:px-8">
+      <div class="space-y-6 max-w-4xl mx-auto text-center">
+        <h1 class="text-sm text-gray-600 dark:text-gray-400 group font-geist mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/20 via-gray-400/20 to-transparent dark:from-zinc-300/5 dark:via-gray-400/5 border-[2px] border-black/5 dark:border-white/5 rounded-3xl w-fit">
+          {title}
+          <svg class="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </h1>
+        
+        <h2 class="text-3xl sm:text-4xl md:text-6xl tracking-tighter font-geist bg-clip-text text-transparent mx-auto leading-tight bg-[linear-gradient(180deg,_#000_0%,_rgba(0,_0,_0,_0.75)_100%)] dark:bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]">
+          {subtitle.regular}
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-300 dark:to-blue-500 block sm:inline">
+            {subtitle.gradient}
+          </span>
+        </h2>
+        
+        <p class="max-w-2xl mx-auto text-gray-600 dark:text-gray-300 text-base sm:text-lg px-4">
+          {description}
+        </p>
+        
+        <div class="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
+          <AnimatedCTAButton href={ctaHref}>{ctaText}</AnimatedCTAButton>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+

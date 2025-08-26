@@ -1,0 +1,71 @@
+---
+import FeatureCard from './FeatureCard.astro';
+import BGPattern from './BGPattern.astro';
+import AnimatedCTAButton from './AnimatedCTAButton.astro';
+
+const advantages = [
+  {
+    title: "Automatische Kundengewinnung",
+    icon: "BarChart3",
+    description: "Ihre Website arbeitet 24/7 und generiert qualifizierte Leads, während Sie sich auf die Beratung konzentrieren.",
+  },
+  {
+    title: "Sofortiger Vertrauensaufbau",
+    icon: "Sparkles",
+    description: "Professionelles Design vermittelt Kompetenz und schafft das Vertrauen, das für Abschlüsse entscheidend ist.",
+  },
+  {
+    title: "Höhere Sichtbarkeit",
+    icon: "TrendingUp",
+    description: "SEO-optimierte Websites sorgen dafür, dass Ihre Zielkunden Sie online finden, bevor sie zur Konkurrenz gehen.",
+  },
+  {
+    title: "Wettbewerbsvorteil",
+    icon: "Target",
+    description: "Überholen Sie Mitbewerber mit einer Website, die moderne Standards erfüllt und Kunden überzeugt.",
+  },
+  {
+    title: "Messbare Ergebnisse",
+    icon: "Palette",
+    description: "Tracking und Analytics zeigen Ihnen genau, wie viele Leads und Kunden über Ihre Website kommen.",
+  },
+  {
+    title: "Langfristige Investition",
+    icon: "Zap",
+    description: "Eine professionelle Website zahlt sich über Jahre aus und wird zu Ihrem stärksten Marketing-Tool.",
+  },
+];
+---
+
+<section id="leistungen" class="relative py-16 md:py-32">
+  <BGPattern variant="grid" mask="fade-edges" size={40} fill="rgba(59, 130, 246, 0.03)" />
+  <BGPattern variant="vertical-lines" mask="fade-x" size={60} fill="rgba(59, 130, 246, 0.02)" />
+  
+  <div class="max-w-6xl mx-auto px-4 md:px-8">
+    <div class="text-center mb-16 scroll-animate">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance mb-4">
+        So lösen wir <span class="text-primary">Ihre Probleme</span>
+      </h2>
+      <p class="text-muted-foreground text-lg max-w-3xl mx-auto">
+        Mit einer professionellen Website verwandeln Sie diese Herausforderungen in messbare Geschäftserfolge.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
+      {advantages.map((advantage) => (
+        <FeatureCard 
+          title={advantage.title}
+          icon={advantage.icon}
+          description={advantage.description}
+          class="scroll-animate"
+        />
+      ))}
+    </div>
+    
+    <div class="text-center mt-16">
+      <AnimatedCTAButton href="https://cal.com/ramon-melchior/15min">
+        Jetzt Termin sichern
+      </AnimatedCTAButton>
+    </div>
+  </div>
+</section>

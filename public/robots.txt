@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://rm-webdesign.de/sitemap.xml
+
+# Allow all bots to crawl the site
+# Priority pages for SEO
+Allow: /#services
+Allow: /#problems 
+Allow: /#contact
