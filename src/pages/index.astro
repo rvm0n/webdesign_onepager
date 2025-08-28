@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/react/Navbar.tsx';
-import ScrollAnimations from '../components/react/ScrollAnimations.tsx';
-import FAQSection from '../components/react/FAQSection.tsx';
+import Navbar from '../components/ui/Navbar.astro';
+import FAQSection from '../components/ui/FAQSection.astro';
 import HeroSection from '../components/ui/HeroSection.astro';
 import BenefitsSection from '../components/ui/BenefitsSection.astro';
 import ServicesGridSection from '../components/ui/ServicesGridSection.astro';
@@ -17,7 +16,7 @@ import '../styles/globals.css';
   description="Professionelle Websites für Versicherungs-, Finanz- & Immobilienmakler. 6 Jahre Erfahrung aus Birkenfeld für ganz Deutschland. Kostenloses Beratungsgespräch."
 >
   <main class="min-h-screen">
-    <Navbar client:load />
+    <Navbar />
 
     <HeroSection
       title="Premium Webdesign für Finanzexperten"
@@ -40,10 +39,9 @@ import '../styles/globals.css';
     <BenefitsSection />
     <ServicesGridSection />
     <ProcessSection />
-    <FAQSection client:idle />
+    <FAQSection />
     <CTASection />
     <Footer />
     
-    <ScrollAnimations client:idle />
   </main>
 </Layout>

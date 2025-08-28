@@ -1,0 +1,172 @@
+---
+// FAQ Section component converted from React to Astro using native HTML details/summary
+---
+
+<section id="faq" class="relative py-16 md:py-24">
+  <!-- Background pattern -->
+  <div 
+    class="absolute inset-0 z-[-10] size-full [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
+    style="background-image: radial-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px); background-size: 40px 40px;"
+  ></div>
+
+  <div class="mx-auto max-w-5xl px-4 md:px-6">
+    <div class="mx-auto max-w-xl text-center">
+      <h2 class="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">Häufig gestellte Fragen</h2>
+      <p class="text-muted-foreground mt-4 text-balance">
+        Hier finden Sie Antworten auf die wichtigsten Fragen rund um unsere Webdesign-Services für
+        Finanzdienstleister.
+      </p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-xl">
+      <div class="relative">
+        <!-- Background grid pattern -->
+        <div 
+          class="absolute inset-0 z-[-10] size-full [mask-image:radial-gradient(ellipse_at_center,transparent,white)] rounded-2xl"
+          style="background-image: linear-gradient(to right, rgba(59, 130, 246, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 130, 246, 0.02) 1px, transparent 1px); background-size: 24px 24px;"
+        ></div>
+
+        <div class="bg-card ring-muted relative w-full rounded-2xl border px-8 py-3 shadow-sm ring-4 dark:ring-0">
+          
+          <!-- FAQ Item 1 -->
+          <details class="border-b border-dashed border-border group">
+            <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+              Was kostet eine professionelle Website-Erstellung?
+              <svg 
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="shrink-0 opacity-60 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="pb-4 pt-0">
+              <p class="text-base">Das hängt vom Umfang ab. Kleine Websites starten in der Regel ab ca. 2.500 €, bei umfangreicheren Projekten zzgl. Shop- oder Schnittstellenfunktion erhalten Sie immer ein individuelles Angebot abgestimmt auf den Umfang.</p>
+            </div>
+          </details>
+
+          <!-- FAQ Item 2 -->
+          <details class="border-b border-dashed border-border group">
+            <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+              Wie lange dauert es, bis meine Website online ist?
+              <svg 
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="shrink-0 opacity-60 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="pb-4 pt-0">
+              <p class="text-base">Die Entwicklungszeit beträgt in der Regel 2-4 Wochen, abhängig vom Projektumfang. Nach Ihrer Freigabe ist die Website innerhalb von 24 Stunden live. Wir halten Sie während des gesamten Prozesses über den Fortschritt auf dem Laufenden.</p>
+            </div>
+          </details>
+
+          <!-- FAQ Item 3 -->
+          <details class="border-b border-dashed border-border group">
+            <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+              Kann ich meine Website später selbst pflegen?
+              <svg 
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="shrink-0 opacity-60 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="pb-4 pt-0">
+              <p class="text-base">Ja, absolut! Wir entwickeln alle Websites mit benutzerfreundlichen Content-Management-Systemen. Sie erhalten eine ausführliche Einweisung und können Texte, Bilder und Inhalte jederzeit selbst aktualisieren. Bei Fragen stehen wir Ihnen gerne zur Verfügung.</p>
+            </div>
+          </details>
+
+          <!-- FAQ Item 4 -->
+          <details class="border-b border-dashed border-border group">
+            <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+              Ist meine Website für Mobilgeräte optimiert?
+              <svg 
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="shrink-0 opacity-60 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="pb-4 pt-0">
+              <p class="text-base">Selbstverständlich! Alle unsere Websites sind vollständig responsive und für alle Endgeräte optimiert. Da über 60% der Nutzer mobil surfen, legen wir besonderen Wert auf eine perfekte Darstellung auf Smartphones und Tablets.</p>
+            </div>
+          </details>
+
+          <!-- FAQ Item 5 -->
+          <details class="border-border group">
+            <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+              Bieten Sie auch Wartung und Support nach dem Launch an?
+              <svg 
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                class="shrink-0 opacity-60 transition-transform duration-200 group-open:rotate-180"
+                aria-hidden="true"
+              >
+                <path d="m6 9 6 6 6-6"/>
+              </svg>
+            </summary>
+            <div class="pb-4 pt-0">
+              <p class="text-base">Ja, wir bieten verschiedene Wartungspakete an, die regelmäßige Updates, Backups, Sicherheitschecks und technischen Support umfassen. So bleibt Ihre Website immer aktuell, sicher und funktionsfähig.</p>
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Enhanced styling for native details/summary elements */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+  
+  details summary::marker {
+    display: none;
+  }
+  
+  /* Smooth animation for details content */
+  details[open] > div {
+    animation: accordion-down 0.2s ease-out;
+  }
+  
+  details:not([open]) > div {
+    animation: accordion-up 0.2s ease-out;
+  }
+  
+  /* Focus styles for accessibility */
+  details summary:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+</style>

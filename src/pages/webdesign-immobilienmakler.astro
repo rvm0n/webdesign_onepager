@@ -1,8 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/react/Navbar.tsx';
-import ScrollAnimations from '../components/react/ScrollAnimations.tsx';
-import FAQSection from '../components/react/FAQSection.tsx';
+import Navbar from '../components/ui/Navbar.astro';
+import FAQSection from '../components/ui/FAQSection.astro';
 import HeroSection from '../components/ui/HeroSection.astro';
 import IndustryPainPointsSection from '../components/ui/IndustryPainPointsSection.astro';
 import IndustrySolutionsSection from '../components/ui/IndustrySolutionsSection.astro';
@@ -20,7 +19,7 @@ const data = industryData.immobilien;
   description={data.seo.description}
 >
   <main class="min-h-screen">
-    <Navbar client:load />
+    <Navbar />
 
     <HeroSection
       title={data.title}
@@ -40,11 +39,10 @@ const data = industryData.immobilien;
     <IndustryPainPointsSection data={data.painPoints} />
     <IndustrySolutionsSection data={data.solutions} />
     <ProcessSection />
-    <FAQSection client:idle />
+    <FAQSection />
     <IndustryCTASection data={data.cta} />
     <Footer />
     
-    <ScrollAnimations client:idle />
     
   </main>
 </Layout>

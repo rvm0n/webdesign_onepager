@@ -42,7 +42,7 @@ const advantages = [
   <BGPattern variant="vertical-lines" mask="fade-x" size={60} fill="rgba(59, 130, 246, 0.02)" />
   
   <div class="max-w-6xl mx-auto px-4 md:px-8">
-    <div class="text-center mb-16 scroll-animate">
+    <div class="text-center mb-16">
       <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-balance mb-4">
         So lösen wir <span class="text-primary">Ihre Probleme</span>
       </h2>
@@ -51,13 +51,12 @@ const advantages = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 stagger-container">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {advantages.map((advantage) => (
         <FeatureCard 
           title={advantage.title}
           icon={advantage.icon}
           description={advantage.description}
-          class="scroll-animate"
         />
       ))}
     </div>
