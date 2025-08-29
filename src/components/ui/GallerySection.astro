@@ -1,0 +1,199 @@
+---
+import { Image } from 'astro:assets';
+import Card from './Card.astro';
+import CardContent from './CardContent.astro';
+
+const galleryItems = [
+  {
+    title: "Finanzberatung Website",
+    category: "Finanzdienstleistungen",
+    image: "/images/webdesign-bir-de.png", 
+    link: "https://webdesign-bir.de" 
+  },
+  {
+    title: "Immobilienmakler Portal",
+    category: "Immobilien",
+    image: "/images/nolimits-pt-de.png", 
+    link: "https://nolimits-pt.de" 
+  },
+  {
+    title: "Versicherungsagentur",
+    category: "Versicherungen",
+    image: "/images/cooltec-gmbh-de.png", 
+    link: "https://cooltec-gmbh.de" 
+  },
+];
+---
+
+<section id="gallery" class="relative py-16 md:py-24 bg-white overflow-hidden">
+  <!-- Background Pattern -->
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
+    <div class="absolute inset-0 bg-[linear-gradient(45deg,transparent_25%,rgba(59,130,246,0.02)_25%,rgba(59,130,246,0.02)_50%,transparent_50%,transparent_75%,rgba(59,130,246,0.02)_75%)] bg-[length:60px_60px]"></div>
+  </div>
+
+  <div class="relative z-10 max-w-6xl mx-auto px-4 md:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight text-slate-900 mb-4">
+        Erfolgreiche <span class="text-primary">Projekte</span>
+      </h2>
+      <p class="text-slate-600 text-lg max-w-3xl mx-auto">
+        Vertrauensvolle Websites für Finanzexperten, die Kunden gewinnen und Vertrauen schaffen.
+      </p>
+    </div>
+
+    <!-- Gallery Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {galleryItems.map((item, index) => (
+        <a
+          href={item.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="gallery-card group relative aspect-[4/3] w-full rounded-xl bg-white border border-slate-200 shadow-lg overflow-hidden cursor-pointer transform-gpu transition-all duration-300 hover:scale-105 hover:shadow-xl block"
+          style={`animation-delay: ${index * 100}ms`}
+        >
+          <!-- 3D Tilt Effect Container -->
+          <div class="tilt-container relative h-full w-full preserve-3d">
+            <!-- Image Container -->
+            <div class="absolute inset-4 flex flex-col justify-end p-6 rounded-lg overflow-hidden preserve-3d">
+              <Image
+                src={item.image}
+                alt={item.title}
+                width={400}
+                height={300}
+                format="webp"
+                loading="lazy"
+                class="absolute inset-0 w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-110"
+              />
+
+              <!-- Animated Canvas Overlay -->
+              <div class="generative-canvas absolute inset-0 w-full h-full opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                <svg class="w-full h-full" viewBox="0 0 400 400">
+                  <defs>
+                    <linearGradient id={`grad-${index}`} x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(168, 85, 247, 0.1)" />
+                      <stop offset="50%" stop-color="rgba(168, 85, 247, 0.3)" />
+                      <stop offset="100%" stop-color="rgba(168, 85, 247, 0.1)" />
+                    </linearGradient>
+                  </defs>
+                  <!-- Animated lines -->
+                  {Array.from({ length: 8 }, (_, i) => (
+                    <line
+                      x1={50 + i * 40}
+                      y1="0"
+                      x2={50 + i * 40}
+                      y2="400"
+                      stroke={`url(#grad-${index})`}
+                      stroke-width="1"
+                      class="animate-pulse"
+                      style={`animation-delay: ${i * 200}ms`}
+                    />
+                  ))}
+                  {Array.from({ length: 6 }, (_, i) => (
+                    <line
+                      x1="0"
+                      y1={50 + i * 60}
+                      x2="400"
+                      y2={50 + i * 60}
+                      stroke={`url(#grad-${index})`}
+                      stroke-width="1"
+                      class="animate-pulse"
+                      style={`animation-delay: ${i * 300}ms`}
+                    />
+                  ))}
+                </svg>
+              </div>
+
+              <!-- Gradient Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/40 to-transparent"></div>
+
+              <!-- Content -->
+              <div class="relative z-10 transform translate-y-4 md:group-hover:translate-y-0 md:translate-y-4 translate-y-0 transition-transform duration-300">
+                <h3 class="text-xl font-bold text-white mb-1 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 delay-100">
+                  {item.title}
+                </h3>
+                <p class="text-sm text-slate-300 opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 delay-200">
+                  {item.category}
+                </p>
+              </div>
+
+              <!-- Arrow Icon -->
+              <div class="absolute top-4 right-4 text-white opacity-100 md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300 transform translate-x-0 md:translate-x-2 md:group-hover:translate-x-0">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 17L17 7M17 7H7m10 0v10"></path>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .gallery-card {
+    animation: fadeInUp 0.8s ease-out forwards;
+    opacity: 0;
+    transform: translateY(50px);
+  }
+
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .tilt-container {
+    transition: transform 0.3s ease;
+  }
+
+  .gallery-card:hover .tilt-container {
+    transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) scale(1.02);
+  }
+
+  .generative-canvas svg line {
+    animation: lineAnimation 3s ease-in-out infinite;
+  }
+
+  @keyframes lineAnimation {
+    0%, 100% { opacity: 0.1; }
+    50% { opacity: 0.6; }
+  }
+
+  .preserve-3d {
+    transform-style: preserve-3d;
+  }
+</style>
+
+<script>
+  // Add mouse tracking for enhanced 3D tilt effect
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.gallery-card');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e: MouseEvent) => {
+        const rect = card.getBoundingClientRect();
+        const x = (e.clientX - rect.left) / rect.width - 0.5;
+        const y = (e.clientY - rect.top) / rect.height - 0.5;
+
+        const tiltContainer = card.querySelector('.tilt-container') as HTMLElement;
+        if (tiltContainer) {
+          const rotateX = y * -10; // Reverse for natural feel
+          const rotateY = x * 10;
+
+          tiltContainer.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+        }
+      });
+
+      card.addEventListener('mouseleave', () => {
+        const tiltContainer = card.querySelector('.tilt-container') as HTMLElement;
+        if (tiltContainer) {
+          tiltContainer.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)';
+        }
+      });
+    });
+  });
+</script>
