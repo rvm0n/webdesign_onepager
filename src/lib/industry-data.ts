@@ -129,8 +129,8 @@ export const industryData: Record<string, IndustryData> = {
       footer: "30 Min · Kostenlos · Speziell für Versicherungsmakler"
     },
     seo: {
-      title: "Webdesign für Versicherungsmakler | RM Webdesign & AI",
-      description: "Professionelle Website für Versicherungsmakler. Vertrauen digital aufbauen, DSGVO-konform, Online-Terminbuchung. Aus Birkenfeld für ganz Deutschland.",
+      title: "Webdesign für Versicherungsmakler: Vertrauen online aufbauen",
+      description: "Sie sind Versicherungsmakler und wollen online Vertrauen aufbauen? Wir erstellen professionelle Websites, die neue Mandanten generieren. Jetzt beraten lassen!",
       keywords: ["Webdesign Versicherungsmakler", "Website Versicherungsmakler", "Homepage Versicherungsmakler", "Versicherungsmakler Website erstellen", "DSGVO Versicherung", "Online Terminbuchung Versicherung"]
     }
   },
@@ -218,8 +218,8 @@ export const industryData: Record<string, IndustryData> = {
       footer: "30 Min · Kostenlos · Speziell für Finanzberater"
     },
     seo: {
-      title: "Webdesign für Finanzberater | RM Webdesign & AI",
-      description: "Professionelle Website für Finanzberater. Seriös auftreten, neue Kunden digital gewinnen. Finanz-Tools, DSGVO-konform. Aus Birkenfeld für ganz Deutschland.",
+      title: "Webdesign für Finanzberater: Digital neue Kunden gewinnen",
+      description: "Finanzberatung ist Vertrauenssache. Professionelle Websites für Finanzberater mit Finanz-Tools & DSGVO-Konformität. Jetzt Beratungsgespräch sichern!",
       keywords: ["Webdesign Finanzberater", "Website Finanzberater", "Homepage Finanzberatung", "Finanzberater Website erstellen", "Finanzdienstleister Website", "Finanzberater Online Marketing"]
     }
   },
@@ -307,8 +307,8 @@ export const industryData: Record<string, IndustryData> = {
       footer: "30 Min · Kostenlos · Speziell für Immobilienmakler"
     },
     seo: {
-      title: "Webdesign für Immobilienmakler | RM Webdesign & AI",
-      description: "Professionelle Website für Immobilienmakler. Objekte perfekt präsentieren, Suchfilter, mobile Optimierung. Aus Birkenfeld für ganz Deutschland.",
+      title: "Webdesign für Immobilienmakler: Objekte perfekt präsentieren",
+      description: "Moderne Website für Immobilienmakler. Objekte professionell präsentieren, mobile Objektsuche, automatische Lead-Qualifizierung. Jetzt Erstgespräch sichern!",
       keywords: ["Webdesign Immobilienmakler", "Website Immobilienmakler", "Homepage Immobilienmakler", "Immobilienmakler Website erstellen", "Immobilien Website", "Makler Online Marketing"]
     }
   }

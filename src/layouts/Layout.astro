@@ -49,16 +49,37 @@ const canonicalURL = canonical || Astro.url;
     
     <!-- Using system fonts for optimal performance -->
     
-    <!-- JSON-LD Schema.org markup -->
+    <!-- LocalBusiness JSON-LD Schema.org markup -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "WebDesignService",
-        "name": "Webdesign für Finanzdienstleister",
+        "@type": "LocalBusiness",
+        "@id": "https://makler-webdesign.de/#localbusiness",
+        "name": "RM Webdesign & AI",
         "description": "Professionelle Webdesign-Lösungen für Finanzberater, Immobilienmakler und Versicherungsmakler",
-        "url": "https://webdesign-landingpage.com",
-        "serviceType": ["Web Design", "Web Development"],
-        "areaServed": "Deutschland",
+        "url": "https://makler-webdesign.de",
+        "logo": "https://makler-webdesign.de/favicon.svg",
+        "image": "https://makler-webdesign.de/og-image.jpg",
+        "telephone": "+4915563739403",
+        "email": "info@webdesign-bir.de",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Brechkaul 6A",
+          "addressLocality": "Birkenfeld",
+          "postalCode": "55765",
+          "addressCountry": "DE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "49.6520",
+          "longitude": "7.1644"
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "Deutschland"
+        },
+        "serviceType": "ProfessionalService",
+        "priceRange": "€€-€€€",
         "hasOfferCatalog": {
           "@type": "OfferCatalog",
           "name": "Webdesign Services",
@@ -68,7 +89,11 @@ const canonicalURL = canonical || Astro.url;
               "itemOffered": {
                 "@type": "Service",
                 "name": "Webdesign für Finanzberater",
-                "description": "Spezialisierte Websites für Finanzberater"
+                "description": "Spezialisierte Websites für Finanzberater mit Finanz-Tools",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "RM Webdesign & AI"
+                }
               }
             },
             {
@@ -76,7 +101,11 @@ const canonicalURL = canonical || Astro.url;
               "itemOffered": {
                 "@type": "Service",
                 "name": "Webdesign für Immobilienmakler",
-                "description": "Professionelle Websites für Immobilienmakler"
+                "description": "Professionelle Websites für Immobilienmakler mit Objektpräsentation",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "RM Webdesign & AI"
+                }
               }
             },
             {
@@ -84,11 +113,20 @@ const canonicalURL = canonical || Astro.url;
               "itemOffered": {
                 "@type": "Service",
                 "name": "Webdesign für Versicherungsmakler",
-                "description": "Moderne Websites für Versicherungsmakler"
+                "description": "Moderne Websites für Versicherungsmakler mit Online-Terminbuchung",
+                "provider": {
+                  "@type": "LocalBusiness",
+                  "name": "RM Webdesign & AI"
+                }
               }
             }
           ]
-        }
+        },
+        "founder": {
+          "@type": "Person",
+          "name": "Ramon Melchior"
+        },
+        "vatID": "DE455170937"
       }
     </script>
   </head>
