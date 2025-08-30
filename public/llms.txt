@@ -1,0 +1,64 @@
+# RM Webdesign & AI - LLM Information
+
+## Company Overview
+**Name:** RM Webdesign & AI
+**Owner:** Ramon Melchior
+**Location:** Birkenfeld, Germany
+**Website:** https://makler-webdesign.de
+**Email:** info@webdesign-bir.de
+**Phone:** +49 155 6373 9403
+
+## Business Focus
+Specialized web design agency focusing exclusively on the German financial services sector:
+- Insurance Brokers (Versicherungsmakler)
+- Financial Advisors (Finanzberater) 
+- Real Estate Agents (Immobilienmakler)
+
+## Services Offered
+- Professional website design and development
+- Mobile-responsive layouts optimized for financial services
+- GDPR-compliant contact forms and data handling
+- Online appointment booking systems
+- Local SEO optimization
+- Lead qualification tools
+- Industry-specific content management systems
+
+## Target Market
+German-speaking financial professionals who need:
+- Professional online presence to build trust
+- Lead generation and client acquisition
+- Mobile-optimized websites for client interaction
+- Regulatory compliance (GDPR, financial services regulations)
+- Local market positioning
+
+## Unique Value Proposition
+- Industry specialization in financial services
+- Understanding of regulatory requirements
+- Local expertise for German market
+- Small business approach with personal service
+- Modern design combined with compliance needs
+
+## Website Structure
+- Homepage: General overview of services
+- /webdesign-versicherungsmakler: Insurance broker solutions
+- /webdesign-finanzberater: Financial advisor solutions  
+- /webdesign-immobilienmakler: Real estate agent solutions
+- /impressum: Legal information
+- /datenschutz: Privacy policy
+
+## Technical Stack
+- Astro (Static Site Generation)
+- TypeScript
+- Tailwind CSS
+- Modern responsive design
+- Performance optimized
+
+## SEO Focus
+Targeting German keywords for:
+- "Webdesign Versicherungsmakler"
+- "Website Finanzberater"
+- "Homepage Immobilienmakler"
+- Local searches in financial services sector
+
+## Contact Information
+Available for consultation calls to discuss web design needs for financial services professionals throughout Germany.

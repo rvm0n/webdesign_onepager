@@ -2,10 +2,22 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://rm-webdesign.de/sitemap.xml
+Sitemap: https://makler-webdesign.de/sitemap.xml
 
 # Allow all bots to crawl the site
 # Priority pages for SEO
-Allow: /#benefits
-Allow: /#gallery 
-Allow: /#contact
+Allow: /
+Allow: /webdesign-versicherungsmakler/
+Allow: /webdesign-finanzberater/
+Allow: /webdesign-immobilienmakler/
+Allow: /#vorteile
+Allow: /#referenzen
+Allow: /#ablauf
+Allow: /#faq
+
+# Block legal pages from indexing
+Disallow: /impressum/
+Disallow: /datenschutz/
+
+# LLM-specific crawling guidance
+Allow: /llms.txt
