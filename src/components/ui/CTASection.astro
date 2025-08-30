@@ -21,21 +21,25 @@ import Card from './Card.astro';
         </AnimatedCTAButton>
       </div>
     </div>
-    <div class="relative">
-      <!-- Clean 1px nested lines -->
-      <div class="absolute inset-0 border border-gray-200 rounded-3xl"></div>
-      <div class="absolute inset-2 border border-gray-100 rounded-2xl"></div>
-      <div class="absolute inset-4 border border-gray-50 rounded-xl"></div>
-      
-      <Card class="relative rounded-3xl border shadow-lg bg-white">
-        <div class="grid items-center gap-8 divide-y p-8 md:grid-cols-2 md:divide-x md:divide-y-0">
+    <div class="nested-cta-container relative">
+      <!-- Enhanced Nested Borders with Pulse Effect -->
+      <div class="outer-ring">
+        <div class="middle-ring">
+          <div class="inner-ring">
+            <!-- Pulse rings -->
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            <div class="pulse-ring"></div>
+            
+            <Card class="relative rounded-3xl border shadow-lg bg-white overflow-hidden">
+        <div class="grid items-center gap-8 divide-y p-8 md:grid-cols-2 md:divide-y-0">
           <div class="pb-8 text-center md:pb-0 md:pr-8">
             <h3 class="text-xl font-semibold text-black">Kostenloses Beratungsgespräch</h3>
             
             <div class="my-6">
               <h4 class="text-2xl font-bold text-blue-600 mb-3">15 Minuten für Ihren Erfolg</h4>
               <p class="text-black">
-                Lassen Sie uns in einem kostenlosen Gespräch besprechen, wie eine professionelle Website Ihr Geschäft voranbringt.
+                Lassen Sie uns in einem kostenlosen Gespräch herausfinden, wie eine professionelle Website Ihr Geschäft voranbringt.
               </p>
             </div>
 
@@ -47,15 +51,24 @@ import Card from './Card.astro';
 
             <p class="text-gray-600 mt-6 text-sm">15 Min · Kostenlos · Unverbindlich</p>
           </div>
-          <div class="relative">
-            <ul role="list" class="space-y-3">
+          <div class="relative flex flex-col items-center">
+            <!-- Profile Image -->
+            <div class="flex justify-center mb-6">
+              <img 
+                src="/images/ramon.jpg" 
+                alt="Ramon - Webdesign Spezialist" 
+                class="w-32 h-32 rounded-full object-cover border-2 border-blue-100 shadow-sm"
+              />
+            </div>
+            
+            <ul role="list" class="space-y-3 mt-4 text-center">
               <li class="flex items-center gap-3">
                 <div class="flex-shrink-0 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
                   <svg class="size-3 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-sm font-medium text-black">Professionelles Design für Finanzbranche</span>
+                <span class="text-sm font-medium text-black">Individuell auf Sie abgestimmt</span>
               </li>
               <li class="flex items-center gap-3">
                 <div class="flex-shrink-0 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
@@ -71,7 +84,7 @@ import Card from './Card.astro';
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                   </svg>
                 </div>
-                <span class="text-sm font-medium text-black">DSGVO-konform & rechtssicher</span>
+                <span class="text-sm font-medium text-black">Authentisch & überzeugend</span>
               </li>
               <li class="flex items-center gap-3">
                 <div class="flex-shrink-0 w-5 h-5 bg-blue-600 rounded-full flex items-center justify-center">
@@ -83,8 +96,106 @@ import Card from './Card.astro';
               </li>
             </ul>
           </div>
+            </div>
+            </Card>
+          </div>
         </div>
-      </Card>
+      </div>
     </div>
   </div>
 </section>
+
+<style>
+  /* Nested CTA Container with Pulse Effect */
+  .nested-cta-container {
+    max-width: 100%;
+  }
+
+  .outer-ring {
+    padding: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 48px;
+    background: rgba(59, 130, 246, 0.02);
+    position: relative;
+  }
+
+  .middle-ring {
+    padding: 6px;
+    border: 1px solid rgba(59, 130, 246, 0.12);
+    border-radius: 40px;
+    background: rgba(59, 130, 246, 0.02);
+    position: relative;
+  }
+
+  .inner-ring {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+  }
+
+  .pulse-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: 1px solid rgba(59, 130, 246, 0.15);
+    border-radius: 32px;
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    pointer-events: none;
+  }
+
+  .pulse-ring:nth-child(2) {
+    animation-delay: 1s;
+  }
+
+  .pulse-ring:nth-child(3) {
+    animation-delay: 2s;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.3;
+    }
+    50% {
+      transform: scale(1.02);
+      opacity: 0;
+    }
+  }
+
+  /* Glass morphism effect for the card */
+  .nested-cta-container .bg-white {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  /* Responsive adjustments */
+  @media (prefers-reduced-motion: reduce) {
+    .pulse-ring {
+      animation: none;
+      opacity: 0.1;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .outer-ring {
+      border-radius: 32px;
+      padding: 4px;
+    }
+    
+    .middle-ring {
+      border-radius: 28px;
+      padding: 4px;
+    }
+    
+    .inner-ring {
+      border-radius: 24px;
+    }
+    
+    .pulse-ring {
+      border-radius: 24px;
+    }
+  }
+</style>

@@ -3,7 +3,6 @@ import Layout from '../layouts/Layout.astro';
 import Navbar from '../components/ui/Navbar.astro';
 import FAQSection from '../components/ui/FAQSection.astro';
 import HeroSection from '../components/ui/HeroSection.astro';
-import BenefitsSection from '../components/ui/BenefitsSection.astro';
 import ServicesGridSection from '../components/ui/ServicesGridSection.astro';
 import GallerySection from '../components/ui/GallerySection.astro';
 import ProcessSection from '../components/ui/ProcessSection.astro';
@@ -13,20 +12,20 @@ import '../styles/globals.css';
 ---
 
 <Layout 
-  title="Premium Webdesign für Finanzexperten | RM Webdesign & AI"
-  description="Professionelle Websites für Versicherungs-, Finanz- & Immobilienmakler. 6 Jahre Erfahrung aus Birkenfeld für ganz Deutschland. Kostenloses Beratungsgespräch."
+  title="Webseiten für Immobilienmakler, Finanzberater und Versicherungsmakler | RM Webdesign & AI"
+  description="Professionelle Websites für Versicherungsmakler, Finanzberater und Immobilienmakler. Individuelles Webdesign für deutsche Unternehmen. Kostenloses Beratungsgespräch."
 >
   <main class="min-h-screen">
     <Navbar />
 
     <HeroSection
-      title="Premium Webdesign für Finanzexperten"
+      title="Ihre digitale Visitenkarte"
       subtitle={{
-        regular: "Vertrauensvolle Websites für ",
-        gradient: "Versicherungs-, Finanz- & Immobilienmakler",
+        regular: "Professionelle Webseiten für die",
+        gradient: "Immobilien- , Finanz- und Versicherungsbranche",
       }}
-      description="6 Jahre Branchenerfahrung. Websites, die Vertrauen schaffen und Kunden gewinnen."
-      ctaText="Kostenlose Beratung buchen"
+      description="Mehr qualifizierte Leads und abgeschlossene Verträge - durch eine Webseite die Sie und Ihre Kunden überzeugt."
+      ctaText="Kostenloses Gespräch vereinbaren"
       ctaHref="https://cal.com/ramon-melchior/15min"
       gridOptions={{
         angle: 65,
@@ -37,7 +36,6 @@ import '../styles/globals.css';
       }}
     />
 
-    <BenefitsSection />
     <ServicesGridSection />
     <GallerySection />
     <ProcessSection />

@@ -25,13 +25,13 @@ interface Props {
 }
 
 const {
-  title = "Premium Webdesign für Finanzprofis",
+  title = "Professionelle Webseiten für die Immobilien- , Finanz- und Versicherungsbranche",
   subtitle = {
     regular: "Vertrauen schaffen durch ",
     gradient: "professionelles Webdesign",
   },
-  description = "Spezialisiert auf Versicherungsmakler, Finanzberater und Immobilienmakler. Wir entwickeln Websites, die Vertrauen schaffen und Kunden gewinnen.",
-  ctaText = "Kostenloses Beratungsgespräch",
+  description = "Mehr qualifizierte Leads und abgeschlossene Verträge - durch eine Webseite die Sie und Ihre Kunden überzeugt.",
+  ctaText = "Kostenloses Erstgespräch vereinbaren",
   ctaHref = "https://cal.com/ramon-melchior/15min",
   bottomImage = {
     light: "/financial-dashboard-light.png",
@@ -60,11 +60,27 @@ const gridStyles = {
   <div class="absolute top-0 z-[0] h-screen w-screen bg-blue-950/10 dark:bg-blue-950/10 bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(59,130,246,0.15),rgba(255,255,255,0))] dark:bg-[radial-gradient(ellipse_20%_80%_at_50%_-20%,rgba(59,130,246,0.3),rgba(255,255,255,0))]"></div>
   
   <section class="relative min-h-screen flex items-center justify-center z-1">
-    <!-- RetroGrid -->
+    <!-- Enhanced Grid with Falling Dots -->
     <div
       class="pointer-events-none absolute size-full overflow-hidden [perspective:200px] opacity-[var(--opacity)]"
       style={gridStyles}
     >
+      <!-- Vertical Grid Lines with Falling Dots -->
+      <div class="absolute inset-0 grid-lines">
+        {Array.from({ length: 12 }, (_, i) => (
+          <div 
+            class="vertical-line" 
+            style={`left: ${(i + 1) * 8.33}%; animation-delay: ${i * 0.5}s;`}
+          >
+            <div 
+              class="falling-dot"
+              style={`animation-duration: ${8 + (i % 4) * 2}s; animation-delay: ${i * 1.2}s;`}
+            ></div>
+          </div>
+        ))}
+      </div>
+      
+      <!-- Original RetroGrid -->
       <div class="absolute inset-0 [transform:rotateX(var(--grid-angle))]">
         <div class="[background-image:linear-gradient(to_right,var(--light-line)_1px,transparent_0),linear-gradient(to_bottom,var(--light-line)_1px,transparent_0)] [background-repeat:repeat] [background-size:var(--cell-size)_var(--cell-size)] [height:300vh] [inset:0%_0px] [margin-left:-200%] [transform-origin:100%_0_0] [width:600vw] dark:[background-image:linear-gradient(to_right,var(--dark-line)_1px,transparent_0),linear-gradient(to_bottom,var(--dark-line)_1px,transparent_0)]"></div>
       </div>
@@ -98,4 +114,67 @@ const gridStyles = {
     </div>
   </section>
 </div>
+
+<style>
+  /* Falling Dots Animation */
+  .grid-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .vertical-line {
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    background: linear-gradient(
+      to bottom,
+      transparent 0%,
+      rgba(59, 130, 246, 0.03) 20%,
+      rgba(59, 130, 246, 0.08) 50%,
+      rgba(59, 130, 246, 0.03) 80%,
+      transparent 100%
+    );
+  }
+
+  .falling-dot {
+    position: absolute;
+    width: 3px;
+    height: 3px;
+    background: #3b82f6;
+    border-radius: 50%;
+    left: -1px;
+    box-shadow: 0 0 6px #3b82f6, 0 0 12px rgba(59, 130, 246, 0.3);
+    animation: fall linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes fall {
+    0% {
+      transform: translateY(-10px);
+      opacity: 0;
+    }
+    10% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 0.8;
+    }
+    100% {
+      transform: translateY(100vh);
+      opacity: 0;
+    }
+  }
+
+  /* Responsive adjustments */
+  @media (prefers-reduced-motion: reduce) {
+    .falling-dot {
+      animation: none;
+      opacity: 0.3;
+    }
+  }
+</style>
 
