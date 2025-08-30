@@ -1,0 +1,32 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/ui/Navbar.astro';
+import Footer from '../components/ui/Footer.astro';
+import '../styles/globals.css';
+---
+
+<Layout 
+  title="Datenschutzerklärung | RM Webdesign & AI"
+  description="Datenschutzerklärung von RM Webdesign & AI - Ramon Melchior"
+  noindex={true}
+>
+  <main class="min-h-screen">
+    <Navbar />
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+      <div class="max-w-none">
+        
+        <h1 class="text-4xl font-bold text-gray-900 mb-12">Datenschutzerklärung</h1>
+        
+        <div class="space-y-12">
+          <p class="text-lg text-gray-800 leading-relaxed">
+            Inhalte folgen in Kürze...
+          </p>
+        </div>
+        
+      </div>
+    </div>
+
+    <Footer />
+  </main>
+</Layout>
