@@ -2,6 +2,10 @@
 dist/
 # generated types
 .astro/
+.claude
+.vscode
+.windsurf
+.cursor
 
 # dependencies
 node_modules/
