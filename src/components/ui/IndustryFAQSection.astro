@@ -1,0 +1,172 @@
+---
+export interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+export interface Props {
+  title?: string;
+  subtitle?: string;
+  faqs: FAQItem[];
+}
+
+const {
+  title = "Häufig gestellte Fragen",
+  subtitle = "Hier finden Sie Antworten auf die wichtigsten Fragen.",
+  faqs
+} = Astro.props;
+---
+
+<section id="faq" class="relative py-16 md:py-24">
+  <!-- FAQ Schema Markup -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map(faq => ({
+      "@type": "Question",
+      "name": faq.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": faq.answer
+      }
+    }))
+  })} />
+
+  <!-- Background pattern -->
+  <div
+    class="absolute inset-0 z-[-10] size-full [mask-image:radial-gradient(ellipse_at_center,white,transparent)]"
+    style="background-image: radial-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px); background-size: 40px 40px;"
+  ></div>
+
+  <div class="mx-auto max-w-5xl px-4 md:px-6">
+    <div class="mx-auto max-w-xl text-center">
+      <h2 class="text-balance text-3xl font-bold md:text-4xl lg:text-5xl">{title}</h2>
+      <p class="text-muted-foreground mt-4 text-balance">
+        {subtitle}
+      </p>
+    </div>
+
+    <div class="mx-auto mt-12 max-w-xl">
+      <div class="relative">
+        <!-- Background grid pattern -->
+        <div
+          class="absolute inset-0 z-[-10] size-full [mask-image:radial-gradient(ellipse_at_center,transparent,white)] rounded-2xl"
+          style="background-image: linear-gradient(to right, rgba(59, 130, 246, 0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(59, 130, 246, 0.02) 1px, transparent 1px); background-size: 24px 24px;"
+        ></div>
+
+        <div class="bg-card ring-muted relative w-full rounded-2xl border px-8 py-3 shadow-sm ring-4 dark:ring-0">
+
+          {faqs.map((faq, index) => (
+            <details class={`border-b border-dashed border-border group ${index === faqs.length - 1 ? '!border-b-0' : ''}`}>
+              <summary class="flex flex-1 items-center justify-between py-4 text-left font-semibold transition-all hover:underline cursor-pointer list-none text-base">
+                {faq.question}
+                <div class="chevron-icon shrink-0 opacity-60 transition-transform duration-300 group-open:rotate-180" aria-hidden="true"></div>
+              </summary>
+              <div class="pb-4 pt-0">
+                <p class="text-base" set:html={faq.answer}></p>
+              </div>
+            </details>
+          ))}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Performance optimizations */
+  #faq {
+    contain: layout style paint;
+  }
+
+  /* Enhanced styling for native details/summary elements */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::marker {
+    display: none;
+  }
+
+  /* Simple, performant animations using max-height instead of height */
+  details > div {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.25s ease-out, opacity 0.2s ease-out 0.05s;
+  }
+
+  details[open] > div {
+    max-height: 500px; /* Adjust based on your content */
+    opacity: 1;
+    transition: max-height 0.3s ease-out, opacity 0.2s ease-out;
+  }
+
+  /* Focus styles for accessibility */
+  details summary:focus-visible {
+    outline: 2px solid var(--color-ring);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* CSS-based chevron icon (more performant than SVG) */
+  .chevron-icon {
+    width: 16px;
+    height: 16px;
+    position: relative;
+  }
+
+  .chevron-icon::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    background-color: currentColor;
+    transform: translate(-50%, -50%) rotate(45deg);
+    transition: transform 0.25s ease;
+  }
+
+  .chevron-icon::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 2px;
+    background-color: currentColor;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transition: transform 0.25s ease;
+  }
+
+  .group-open .chevron-icon::before {
+    transform: translate(-50%, -50%) rotate(135deg);
+  }
+
+  .group-open .chevron-icon::after {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+</style>
+
+<script>
+  // Minimal FAQ script for optimal performance
+  document.addEventListener('DOMContentLoaded', () => {
+    const details = document.querySelectorAll('#faq details');
+
+    details.forEach(detail => {
+      const summary = detail.querySelector('summary');
+      if (!summary) return;
+
+      // Simple touch feedback for mobile - with null check
+      summary.addEventListener('touchstart', () => {
+        summary.style.transform = 'scale(0.98)';
+      }, { passive: true });
+
+      summary.addEventListener('touchend', () => {
+        summary.style.transform = '';
+      }, { passive: true });
+    });
+  });
+</script>

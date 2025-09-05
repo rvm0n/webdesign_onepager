@@ -1,47 +1,51 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/ui/Navbar.astro';
-import FAQSection from '../components/ui/FAQSection.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
-import ServicesGridSection from '../components/ui/ServicesGridSection.astro';
-import GallerySection from '../components/ui/GallerySection.astro';
-import ProcessSection from '../components/ui/ProcessSection.astro';
-import CTASection from '../components/ui/CTASection.astro';
-import Footer from '../components/ui/Footer.astro';
-import '../styles/globals.css';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/ui/Navbar.astro";
+import IndustryFAQSection from "../components/ui/IndustryFAQSection.astro";
+import { faqData } from "../lib/faq-data.ts";
+import HeroSection from "../components/ui/HeroSection.astro";
+import ServicesGridSection from "../components/ui/ServicesGridSection.astro";
+import GallerySection from "../components/ui/GallerySection.astro";
+import ProcessSection from "../components/ui/ProcessSection.astro";
+import CTASection from "../components/ui/CTASection.astro";
+import Footer from "../components/ui/Footer.astro";
+import "../styles/globals.css";
 ---
 
-<Layout 
-  title="Webseiten für Finanzberater, Immobilienmakler & Versicherungsmakler | RM Webdesign & AI"
-  description="Professionelles Webdesign für Finanz-, Versicherungs- & Immobilienbranche. Mehr Kunden durch moderne Websites. Jetzt beraten lassen!"
+<Layout
+    title="Webseiten für Finanzberater, Immobilienmakler & Versicherungsmakler | RM Webdesign & AI"
+    description="Professionelles Webdesign für Finanz-, Versicherungs- & Immobilienbranche. Mehr Kunden durch moderne Websites. Jetzt beraten lassen!"
 >
-  <main class="min-h-screen">
-    <Navbar />
+    <main class="min-h-screen">
+        <Navbar />
 
-    <HeroSection
-      title="Ihre digitale Visitenkarte"
-      subtitle={{
-        regular: "Professionelle Webseiten für die",
-        gradient: "Immobilien- , Finanz- und Versicherungsbranche",
-      }}
-      description="Mehr qualifizierte Leads und abgeschlossene Verträge - durch eine Webseite die Sie und Ihre Kunden überzeugt."
-      ctaText="Kostenloses Gespräch vereinbaren"
-      ctaHref="https://cal.com/ramon-melchior/15min"
-      gridOptions={{
-        angle: 65,
-        opacity: 0.3,
-        cellSize: 60,
-        lightLineColor: "#0056b3",
-        darkLineColor: "#1e90ff",
-      }}
-    />
+        <HeroSection
+            title="Ihre digitale Visitenkarte"
+            subtitle={{
+                regular: "Professionelle Webseiten für die",
+                gradient: "Immobilien- , Finanz- und Versicherungsbranche",
+            }}
+            description="Mehr qualifizierte Leads und abgeschlossene Verträge - durch eine Webseite die Sie und Ihre Kunden überzeugt."
+            ctaText="Kostenloses Gespräch vereinbaren"
+            ctaHref="https://cal.com/ramon-melchior/15min"
+            gridOptions={{
+                angle: 65,
+                opacity: 0.3,
+                cellSize: 60,
+                lightLineColor: "#0056b3",
+                darkLineColor: "#1e90ff",
+            }}
+        />
 
-    <ServicesGridSection />
-    <GallerySection />
-    <ProcessSection />
-    <FAQSection />
-    <CTASection />
-    <Footer />
-    
-  </main>
+        <ServicesGridSection />
+        <GallerySection />
+        <ProcessSection />
+        <IndustryFAQSection
+            title={faqData.general.title}
+            subtitle={faqData.general.subtitle}
+            faqs={faqData.general.faqs}
+        />
+        <CTASection />
+        <Footer />
+    </main>
 </Layout>

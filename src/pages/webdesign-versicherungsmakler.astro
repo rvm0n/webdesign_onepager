@@ -1,48 +1,48 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Navbar from '../components/ui/Navbar.astro';
-import FAQSection from '../components/ui/FAQSection.astro';
-import HeroSection from '../components/ui/HeroSection.astro';
-import IndustryPainPointsSection from '../components/ui/IndustryPainPointsSection.astro';
-import IndustrySolutionsSection from '../components/ui/IndustrySolutionsSection.astro';
-import ProcessSection from '../components/ui/ProcessSection.astro';
-import IndustryCTASection from '../components/ui/IndustryCTASection.astro';
-import Footer from '../components/ui/Footer.astro';
-import { industryData } from '../lib/industry-data.ts';
-import '../styles/globals.css';
+import Layout from "../layouts/Layout.astro";
+import Navbar from "../components/ui/Navbar.astro";
+import IndustryFAQSection from "../components/ui/IndustryFAQSection.astro";
+import { faqData } from "../lib/faq-data.ts";
+import HeroSection from "../components/ui/HeroSection.astro";
+import IndustryPainPointsSection from "../components/ui/IndustryPainPointsSection.astro";
+import IndustrySolutionsSection from "../components/ui/IndustrySolutionsSection.astro";
+import ProcessSection from "../components/ui/ProcessSection.astro";
+import CTASection from "../components/ui/CTASection.astro";
+import Footer from "../components/ui/Footer.astro";
+import { industryData } from "../lib/industry-data.ts";
+import "../styles/globals.css";
 
 const data = industryData.versicherung;
 ---
 
-<Layout 
-  title={data.seo.title}
-  description={data.seo.description}
->
-  <main class="min-h-screen">
-    <Navbar />
+<Layout title={data.seo.title} description={data.seo.description}>
+    <main class="min-h-screen">
+        <Navbar />
 
-    <HeroSection
-      title={data.title}
-      subtitle={data.subtitle}
-      description={data.description}
-      ctaText={data.heroData.ctaText}
-      ctaHref="#contact"
-      gridOptions={{
-        angle: 65,
-        opacity: 0.3,
-        cellSize: 60,
-        lightLineColor: "#0056b3",
-        darkLineColor: "#1e90ff",
-      }}
-    />
+        <HeroSection
+            title={data.title}
+            subtitle={data.subtitle}
+            description={data.description}
+            ctaText={data.heroData.ctaText}
+            ctaHref="#contact"
+            gridOptions={{
+                angle: 65,
+                opacity: 0.3,
+                cellSize: 60,
+                lightLineColor: "#0056b3",
+                darkLineColor: "#1e90ff",
+            }}
+        />
 
-    <IndustryPainPointsSection data={data.painPoints} />
-    <IndustrySolutionsSection data={data.solutions} />
-    <ProcessSection />
-    <FAQSection />
-    <IndustryCTASection data={data.cta} />
-    <Footer />
-    
-    
-  </main>
+        <IndustryPainPointsSection data={data.painPoints} />
+        <IndustrySolutionsSection data={data.solutions} />
+        <ProcessSection />
+        <IndustryFAQSection
+            title={faqData.versicherungsmakler.title}
+            subtitle={faqData.versicherungsmakler.subtitle}
+            faqs={faqData.versicherungsmakler.faqs}
+        />
+        <CTASection />
+        <Footer />
+    </main>
 </Layout>
